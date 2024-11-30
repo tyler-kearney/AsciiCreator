@@ -47,7 +47,7 @@ namespace AsciiArt
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occurred {ex.Message}");
+                MessageBox.Show($"An error has occurred: {ex.Message}");
             }
         }
 
