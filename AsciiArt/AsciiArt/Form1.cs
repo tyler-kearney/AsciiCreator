@@ -43,7 +43,7 @@ namespace AsciiArt
                 }
 
                 string asciiArt = ConvertToAscii(img);
-                lstOut.Items.Add(asciiArt);
+                lblOut.Text = asciiArt;
             }
             catch (Exception ex)
             {
@@ -53,7 +53,7 @@ namespace AsciiArt
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            lstOut.Items.Clear();
+            lblOut.Text = "";
             txtPath.Text = "";
         }
 
@@ -65,9 +65,9 @@ namespace AsciiArt
             {
                 using (StreamWriter writer = new StreamWriter(sfdSave.FileName))
                 {
-                    foreach (var item in lstOut.Items)
+                    foreach (char letter in lblOut.Text)
                     {
-                        writer.WriteLine(item.ToString());
+                        writer.WriteLine(letter.ToString());
                     }
                 }
             }

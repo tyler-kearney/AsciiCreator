@@ -35,7 +35,7 @@
             btnChoose = new Button();
             btnSave = new Button();
             txtPath = new TextBox();
-            lstOut = new ListBox();
+            lblOut = new Label();
             SuspendLayout();
             // 
             // btnGen
@@ -85,20 +85,21 @@
             txtPath.Size = new Size(1065, 30);
             txtPath.TabIndex = 4;
             // 
-            // lstOut
+            // lblOut
             // 
-            lstOut.FormattingEnabled = true;
-            lstOut.Location = new Point(12, 48);
-            lstOut.Name = "lstOut";
-            lstOut.Size = new Size(925, 464);
-            lstOut.TabIndex = 5;
+            lblOut.BackColor = Color.White;
+            lblOut.BorderStyle = BorderStyle.Fixed3D;
+            lblOut.Location = new Point(12, 45);
+            lblOut.Name = "lblOut";
+            lblOut.Size = new Size(925, 461);
+            lblOut.TabIndex = 5;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1089, 515);
-            Controls.Add(lstOut);
+            Controls.Add(lblOut);
             Controls.Add(txtPath);
             Controls.Add(btnSave);
             Controls.Add(btnChoose);
@@ -120,6 +121,6 @@
         private Button btnChoose;
         private Button btnSave;
         private TextBox txtPath;
-        private ListBox lstOut;
+        private Label lblOut;
     }
 }
