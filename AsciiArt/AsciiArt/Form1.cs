@@ -47,7 +47,7 @@ namespace AsciiArt
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error has occurred: {ex.Message}");
+                MessageBox.Show($"An error has occurred: {ex}");
             }
         }
 
@@ -85,10 +85,26 @@ namespace AsciiArt
         {
             // String variable that will hold the resulting image
             string asciiImg = "";
+            int maxResolution = 800;
+            int newWidth = img.Width;
+            int newHeight = img.Height;
 
             // Resize the image
-            int newWidth = 80;
-            int newHeight = (int)(img.Height * (double)(newWidth / img.Width));
+            if (newWidth > maxResolution || newHeight > maxResolution)
+            {
+                while (newWidth > maxResolution ||  newHeight > maxResolution)
+                {
+                    newWidth = (int)(newWidth * 0.8);
+                    newHeight = (int)(newHeight * 0.8);
+                }
+            }
+
+            // Ensure the image has valid dimensions
+            if (newWidth <= 0 || newHeight <= 0)
+            {
+                throw new ArgumentException("Invalid dimensions for resized image.");
+            }
+
             Bitmap resized = new Bitmap(newWidth, newHeight);
             Graphics g = Graphics.FromImage(resized);
             g.DrawImage(img, 0, 0, newWidth, newHeight);
